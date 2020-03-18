@@ -1,0 +1,95 @@
+//colors
+$primaryColor:#3151ff;
+$secondaryColor: #211a4c;
+$borderColor: #152684;
+$dangerousColor: #ad1010;
+
+
+body {
+    margin: 0;
+    background: $secondaryColor;
+    background: linear-gradient(50deg, $secondaryColor 0%, $primaryColor 100%);
+}
+
+.app {
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    &__field {
+        padding: 10px 15px;
+        border-radius: 3px;
+        outline: none;
+        border-style: none;
+
+        &:disabled {
+            cursor: no-drop;
+        }
+    }
+}
+
+.time {
+    font-size: 3rem;
+    padding: 2rem;
+    transition: .3s ease all;
+    min-height: 90px;
+
+    &--low {
+        font-size: 4rem;
+        color: $dangerousColor;
+    }
+}
+
+.button {
+    padding: .6rem 1.5rem;
+    margin: .4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .8rem;
+    border-style: groove;
+
+    &:focus {
+        outline-width: 0;
+    }
+
+    &__primary {
+        &--active {
+            background-color: $primaryColor;
+            border: 1px solid $borderColor;
+            color: white;
+        }
+
+        &--inactive {
+            background-color: $primaryColor;
+            border: 1px solid $borderColor;
+            color: white;
+        }
+
+        &:hover {
+            background-color: #2641d4;
+            border: 1px solid #1b1f2b;
+        }
+    }
+
+    &--max {
+        background-color: $dangerousColor;
+        color: white;
+        border-color: $dangerousColor;
+    }
+
+    &--blink {
+        animation: blinker 1s linear infinite;
+    }
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+        font-size: 3rem;
+    }
+}
